@@ -10,6 +10,7 @@ import ProductsPage from "./pages/Products";
 import CartPage from "./pages/Cart";
 import Test from "./pages/Test";
 import "./App.css";
+import EntryContext from "./context/entry-context";
 
 class App extends Component {
   state = {
@@ -29,7 +30,11 @@ class App extends Component {
     return (
       <GlobalState>
         <EntryState>
-          <Test data={false} />
+          <EntryContext.Consumer>
+            {storage => {
+              return <Test data={storage} />;
+            }}
+          </EntryContext.Consumer>
           <BrowserRouter>
             <Switch>
               <Route path="/" component={ProductsPage} exact />

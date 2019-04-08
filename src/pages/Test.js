@@ -14,7 +14,7 @@ class Test extends Component {
   }
 
   render() {
-    console.log("test is rendering");
+    console.log("test is rendering", this.props);
     return <div>Test</div>;
   }
 }
