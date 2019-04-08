@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import GlobalState from "./context/GlobalState";
+import EntryState from "./context/EntryState";
 import ShopContext from "./context/shop-context";
 import ProductsPage from "./pages/Products";
 import CartPage from "./pages/Cart";
@@ -12,17 +13,15 @@ class App extends Component {
   render() {
     return (
       <GlobalState>
-        <ShopContext.Consumer>
-          {storage => {
-            return <Test data={false} />;
-          }}
-        </ShopContext.Consumer>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" component={ProductsPage} exact />
-            <Route path="/cart" component={CartPage} exact />
-          </Switch>
-        </BrowserRouter>
+        <EntryState>
+          <Test data={false} />
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" component={ProductsPage} exact />
+              <Route path="/cart" component={CartPage} exact />
+            </Switch>
+          </BrowserRouter>
+        </EntryState>
       </GlobalState>
     );
   }

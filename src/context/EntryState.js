@@ -16,6 +16,7 @@ class EntryState extends Component {
   }
 
   render() {
+    console.log("entry is rendering");
     return <EntryContext.Provider>{this.props.children}</EntryContext.Provider>;
   }
 }
