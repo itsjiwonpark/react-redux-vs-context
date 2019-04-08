@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import ShopContext from './shop-context';
+import ShopContext from "./shop-context";
 
 class GlobalState extends Component {
   state = {
     products: [
-      { id: 'p1', title: 'Gaming Mouse', price: 29.99 },
-      { id: 'p2', title: 'Harry Potter 3', price: 9.99 },
-      { id: 'p3', title: 'Used plastic bottle', price: 0.99 },
-      { id: 'p4', title: 'Half-dried plant', price: 2.99 }
+      { id: "p1", title: "Gaming Mouse", price: 29.99 },
+      { id: "p2", title: "Harry Potter 3", price: 9.99 },
+      { id: "p3", title: "Used plastic bottle", price: 0.99 },
+      { id: "p4", title: "Half-dried plant", price: 2.99 }
     ],
     cart: []
   };
 
   addProductToCart = product => {
-    console.log('Adding product', product);
+    console.log("Adding product", product);
     const updatedCart = [...this.state.cart];
     const updatedItemIndex = updatedCart.findIndex(
       item => item.id === product.id
@@ -35,7 +35,7 @@ class GlobalState extends Component {
   };
 
   removeProductFromCart = productId => {
-    console.log('Removing product with id: ' + productId);
+    console.log("Removing product with id: " + productId);
     const updatedCart = [...this.state.cart];
     const updatedItemIndex = updatedCart.findIndex(
       item => item.id === productId
@@ -56,6 +56,7 @@ class GlobalState extends Component {
   };
 
   render() {
+    console.log("Global state is rendering");
     return (
       <ShopContext.Provider
         value={{
